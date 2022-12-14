@@ -1,0 +1,16 @@
+{% extends 'ejemplo/base.html' %}
+{% block titulo%} Esto es un subtitulo {% endblock %}
+{% block contenido %}
+  
+  <form action="/mascotas/buscar" method="post">
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit">
+  </form>
+
+  {% for mascota in lista_mascotas%}
+      <ul>
+          <li> Nombre: {{mascotas.nombre}}, Dirección: {{mascotas.direccion}}, numero_registro: {{mascotas.numero_registro}}</li>
+      </ul>
+  {% endfor %}
+{% endblock %}

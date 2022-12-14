@@ -1,0 +1,14 @@
+{% extends 'ejemplo/base.html' %}
+{% block titulo%} Alta de nueva mascota {% endblock %}
+{% block contenido %}
+  
+  <form action="/Mascotas/alta" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit">
+  </form>
+
+  <h2 style="color:green">{{msg_exito}}</h2>
+
+  <a href = "/mascotas">Volver a mi mascota</a>
+{% endblock %}
