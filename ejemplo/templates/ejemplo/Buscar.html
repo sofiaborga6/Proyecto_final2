@@ -2,15 +2,16 @@
 {% block titulo%} Esto es un subtitulo {% endblock %}
 {% block contenido %}
   
-  <form action="/mascotas/buscar" method="post">
+  <form action="/mascotas/buscar/" method="post">
     {% csrf_token %}
     {{ form }}
     <input type="submit" value="Submit">
   </form>
 
-  {% for mascota in lista_mascotas%}
+  {% for Mascotas in lista_mascotas %}
       <ul>
-          <li> Nombre: {{Mascotas.nombre}}, Dirección: {{Mascotas.direccion}}, Pasaporte: {{Mascotas.numero_registro}} 
+          <li> id: {{Mascotas.id}}, nombre: {{Mascotas.nombre}}, tipo: {{Mascotas.tipo}}, direccion: {{Mascotas.direccion}}, numero_registro: {{Mascotas.numero_registro}} 
       </ul>
+      <a href = "/mascotas">Volver a mi mascota</a>
   {% endfor %}
 {% endblock %}

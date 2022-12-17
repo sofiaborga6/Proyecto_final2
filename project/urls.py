@@ -15,12 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from ejemplo.views import mostrar_mascotas, Buscar, AltaMascotas, BorrarMascota
+from ejemplo.views import mostrar_mascotas, Buscar, BuscarMascotas, AltaMascotas, BorrarMascota
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('mascotas/', mostrar_mascotas),
-    path('mascotas/buscar/', Buscar.as_view()),
+    path('buscar/', Buscar),
+    path('mascotas/buscar/', BuscarMascotas.as_view()),
     path('mascotas/alta', AltaMascotas.as_view()),
     path('mascotas/borrar/<int:pk>', BorrarMascota.as_view()),
  

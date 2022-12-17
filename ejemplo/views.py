@@ -11,7 +11,7 @@ def mostrar_mascotas(request):
   return render(request, "ejemplo/Mascotas.html", {"lista_mascotas": lista_mascotas})
 
 
-class Buscar(View):
+class BuscarMascotas(View):
     form_class = Buscar
     template_name = 'ejemplo/buscar.html'
     initial = {"nombre":""}
