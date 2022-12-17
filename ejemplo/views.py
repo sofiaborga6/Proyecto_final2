@@ -32,7 +32,7 @@ class Buscar(View):
 class AltaMascotas(View):
 
     form_class = MascotasForm
-    template_name = 'ejemplo/alta_mascotas.html'
+    template_name = 'ejemplo/Altamascota.html'
     initial = {"nombre":"", "tipo": "", "direccion":"", "numero_registro":""}
 
     def get(self, request):
