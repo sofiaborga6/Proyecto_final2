@@ -8,4 +8,4 @@ class Mascotas(models.Model):
     numero_registro = models.IntegerField()
     
 def __str__(self):
-      return f"{self.nombre}, {self.tipo}, {self.direccion}, {self.id}"
+      return f"{self.id}, {self.nombre}, {self.tipo}, {self.direccion}, {self.numero_registro}"
