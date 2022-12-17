@@ -1,0 +1,13 @@
+{% extends 'ejemplo/base.html' %}
+{% block titulo%} Modificar Mascota {% endblock %}
+{% block contenido %}
+
+<form action="/mascotas/borrar/{{ mascotas.id }}" method="post"> 
+    {% csrf_token %}
+    {{ form }}
+    <input type="submit" value="Submit">
+</form>
+
+<h2 style="color:green">{{msg_exito}}</h2>
+
+{% endblock %}

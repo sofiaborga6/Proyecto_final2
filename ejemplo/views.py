@@ -2,7 +2,7 @@ from django.shortcuts import render
 from ejemplo.models import Mascotas
 from ejemplo.forms import Buscar, MascotasForm
 from django.views import View
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 
 # Create your views here.
 
@@ -32,7 +32,7 @@ class Buscar(View):
 class AltaMascotas(View):
 
     form_class = MascotasForm
-    template_name = 'ejemplo/Altamascota.html'
+    template_name = 'ejemplo/altamascota.html' #el argumento tiene que ser exacto al nombre que le pusimos al template
     initial = {"nombre":"", "tipo": "", "direccion":"", "numero_registro":""}
 
     def get(self, request):
@@ -49,3 +49,13 @@ class AltaMascotas(View):
                                                         'msg_exito': msg_exito})
         
         return render(request, self.template_name, {"form": form})
+
+class BorrarMascota(View):
+  template_name = 'ejemplo/mascotas.html'
+
+  # prestar atención ahora el method get recibe un parametro pk == primaryKey == identificador único
+  def get(self, request, pk): 
+      mascotas = get_object_or_404(Mascotas, pk=pk)
+      mascotas.delete()
+      mascotas = Mascotas.objects.all()
+      return render(request, self.template_name, {'lista_familiares': Mascotas})

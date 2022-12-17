@@ -2,7 +2,7 @@
 {% block titulo%} Alta de nueva mascota {% endblock %}
 {% block contenido %}
   
-  <form action="/Mascotas/alta" method="post">
+  <form action="/mascotas/alta" method="post">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="submit" value="Submit">
